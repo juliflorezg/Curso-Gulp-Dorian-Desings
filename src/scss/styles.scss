@@ -1,0 +1,24 @@
+$color: rgb(70, 8, 8);
+
+body {
+	background-color: $color;
+	display: grid;
+	display: flex;
+	color:  gold;
+	position: relative;
+	@media screen and (min-width: 900px) {
+		background-color: rgb(27, 20, 90);
+	}
+
+	article {
+		display: grid;
+		position: absolute;
+		transform: translateY(-100px);
+		background-color: wheat;
+		color: rgb(76, 76, 105);
+    perspective: 50px;
+	}
+}
+.title {
+	font-size: 3rem;
+}
