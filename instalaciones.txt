@@ -1,0 +1,135 @@
+INSTALACIONES UNICAS:
+  1)  npm install --global gulp-cli : Este comando solo se ejecuta una vez, sirve para instalar gulp de manera global en el equipo para tenerlo disponible en todos los proyectos
+
+INSTALACIONES PARA INCLUIR GULP EN UN PROYECTO:
+  2) npm init                                                                 inicializa el package.json
+  3) npm install --save dev gulp                                              instala gulp de manera local en el proyecto
+  4) npm install --save dev @babel/core @babel/register @babel/preset-env     instala babel de manera local en el proyecto
+
+
+El proyecto debe contener:
+    - Un archivo babel.config.json donde pondremos la configuración de babel
+    - Un archivo gulpfile.babel.js donde pondremos la configuración de gulp (en el caso de usar babel 6 el archivo deberá llamarse gulpfile.js)
+
+Transpilar JavaScript
+    gulp-babel:
+    Este el módulo que usará gulp para convertir el código a es5
+    npm install --save-dev gulp-babel
+
+    gulp-terser:
+    Es la nueva versión de uglify, sirve para ofuscar el código
+    npm install --save-dev gulp-terser
+    
+    gulp-concat:
+    Une todos nuestros archivos js en uno solo
+    npm install --save-dev gulp-concat
+
+
+HTML
+    npm install --save gulp-htmlmin
+    Minifica y limpia nuestro HTML
+    https://github.com/kangax/html-minifier
+
+CSS
+    npm install --save-dev gulp-postcss cssnano autoprefixer
+
+
+    Para utilizar autoprefixer hay dos opciones, o añadir los navegadores a los que quieres dar soporte al package.json o hacerlo en un archivo separado.
+    .browserslistrc
+
+        > 0.2%
+        ie >= 8
+        edge >= 15
+        ie_mob >= 10
+        ff >= 45
+        chrome >= 45
+        safari >= 7
+        opera >= 23
+        ios >= 7
+        android >= 4
+        bb >= 10
+
+    postCSS: https://github.com/postcss/postcss/blob/master/docs/plugins.md
+
+
+para postCSS añadir la liguiente lista de plugins
+  const cssPlugins = [
+    cssnano(),
+    autoprefixer({ grid: 'autoplace' }),
+  ]
+para autoprefixer se agrega la opcion de grid para activar los prefijos ya que vienen desactivados por defecto
+
+
+purgar/limpiar CSS
+    npm install --save-dev gulp-purgecss
+
+    este plugin de gulp sirve para deshacerse de los estilos css que no se estén utilizando
+
+Para limpiar la caché del navegador
+  npm install --save-dev gulp-cache-bust
+  este plugin sirve para obligar al navegador a solicitar de nuevo el archivo y no utilizar el que tiene en caché
+
+Para comprimir imágenes
+    npm install --save-dev gulp-imagemin
+
+Browser Sync
+    npm install --save-dev browser-sync
+
+Gulp Plumber
+    npm install --save-dev gulp-plumber
+
+***************************************************************
+const numbers = [1, 2, 3, 4]
+const numbersDouble = numbers.map(number => number * 2)
+
+class Person{
+  constructor(name){
+    this.name = name
+  }
+}
+console.log(numbers)
+
+/////////////////////////////////////////////////////////////
+
+  const numbers2 = [2, 6, 3, 8, 69]
+const numbersTriple = numbers.map(number => number * 3)
+
+const user = {
+  username: 'lol',
+  date: '02-18',
+  gender: 'male',
+  age: 22
+}
+console.log('first lol');
+
+////////////package.json///////////////
+
+{
+  "name": "gulp-babel-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/register": "^7.17.0",
+    "dev": "^0.1.3",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-terser": "^2.1.0"
+  }
+}
+
+
+        {
+					outputStyle: 'compressed',
+				}
+
+const cssPlugins = [cssnano(), autoprefixer({ grid: 'autoplace' })]

@@ -1,0 +1,4 @@
+{
+	//enables transforms for ES2015+
+	"presets": ["@babel/preset-env"]
+}
